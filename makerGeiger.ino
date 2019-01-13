@@ -10,8 +10,8 @@ void setup()
   Serial.begin(9600);
   pinMode(4, OUTPUT);
   pinMode(5, OUTPUT);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
   speaker=0;  
   attachInterrupt(digitalPinToInterrupt(0), count, FALLING); 
 }
@@ -38,15 +38,10 @@ void loop()
 
 void count() 
 { 
-  if (speaker) {
-    digitalWrite(4, HIGH);
-    digitalWrite(5, LOW); 
-    speaker = 0;   
-  }
-  else {
-    digitalWrite(4, LOW);
-    digitalWrite(5, HIGH); 
-    speaker = 1;   
-  }  
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  delayMicroseconds(100);
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
   counter++; 
 }
