@@ -3,7 +3,6 @@
 
 volatile int counter = 0; 
 unsigned long oldTime = 0; 
-volatile  bool speaker=0;
 
 void setup()
 {
@@ -12,7 +11,6 @@ void setup()
   pinMode(5, OUTPUT);
   digitalWrite(4, LOW);
   digitalWrite(5, HIGH);
-  speaker=0;  
   attachInterrupt(digitalPinToInterrupt(0), count, FALLING); 
 }
 
